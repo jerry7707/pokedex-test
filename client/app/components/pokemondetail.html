@@ -1,0 +1,67 @@
+<div id="custom-modal">
+  <div id="overlay">
+      <a href ng-click="close()"  class="close-button">x</a>
+      <img ng-src="http://localhost:3090/spr/{{pokemonSelected.id}}MS.png" style="width:70px;height:70px;position:absolute;top:60%;left:46%;z-index:99;" ></img>
+      <div class="left-container col-md-7">
+        <div class="col-md-12">
+          <img ng-src="http://localhost:3090/img/{{pokemonSelected.id+(pokemonSelected.flatName ? pokemonSelected.flatName : pokemonSelected.ename)}}.png" class="pokedeximg img img-thumbnail"></img>
+        </div>
+        <div class="col-md-12 bottom-container">
+          <div class="col-md-4">
+            <h1>{{pokemonSelected.id}}<h1>
+          </div>
+          <div class="col-md-8">
+            <h1>{{pokemonSelected.ename}}<h1>
+              <h4> <span class="label label-default poketype" ng-repeat="poketype in newTypesEN" ng-style="getTypeColorCode(poketype.ename)">{{poketype.ename}}</span> </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 right-container">
+        <div class="row">
+          <div class="col-md-6">
+            <p><label>Attack </label> <br> {{pokemonSelected.base.Attack}} </p>
+          </div>
+          <div class="col-md-6">
+            <p><label>Defense </label> <br> {{pokemonSelected.base.Defense}} </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <p><label>Special Attack </label> <br> {{pokemonSelected.base["Sp.Atk"]}} </p>
+          </div>
+          <div class="col-md-6">
+            <p><label>Special Defence </label> <br> {{pokemonSelected.base["Sp.Def"]}} </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <p><label>HP </label> <br> {{pokemonSelected.base.HP}} </p>
+          </div>
+          <div class="col-md-6">
+            <p><label>Speed </label> <br> {{pokemonSelected.base.Speed}} </p>
+          </div>
+        </div>
+        <div class="table-content">
+          <table class="table table-default">
+            <thead>
+              <tr>
+                <th> Level </th>
+                <th> Skill Name </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="skill in skills">
+                <td>{{($index + 1)}}</td>
+                <td>
+                  {{skill.ename}}<br/>
+                    <span class="smalltext"><b>Accuracy:</b> {{skill.accuracy? skill.accuracy:0}} <b>| Power:</b> {{skill.power? skill.power :0}}</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+  <div id="fade"></div>
+</div>

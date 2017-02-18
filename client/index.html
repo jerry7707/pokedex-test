@@ -1,0 +1,41 @@
+<html ng-app="App">
+  <head>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>-->
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css"></link>
+    <link rel="stylesheet" href="style/custom.css"></link>
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <!-- Angular -->
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <!-- Boostrap -->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- angular-modal-service -->
+    <script src="/node_modules/angular-modal-service/dst/angular-modal-service.min.js"></script>
+    <!-- angular-bootstrap-alert-modals  -->
+    <script src="/node_modules/angular-bootstrap-alert-modals/dist/angular-bootstrap-alert-modals.min.js"></script>
+    <!--bundled compiled js -->
+    <script type="text/javascript" src="app/bundle.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <nav-bar></nav-bar>
+    <div class="container">
+      <div class="content-box" ng-controller="pokemonController">
+        <search-container></search-container>
+        <!--<img class="logo" src="http://vignette3.wikia.nocookie.net/logopedia/images/e/e5/Pokemon_logo.png/revision/latest?cb=20120128115827"></img>-->
+          <div ng-repeat="pokemon in pokemons | filter:searchText | filter:typesFilterFunc | orderBy:orderBy"  class="col-md-4">
+            <div class="panel panel-info pokemonbox" ng-click="showPokemonDetail(pokemon)">
+              <div class="panel-body">
+                <img ng-src="http://localhost:3090/thm/{{pokemon.id+(pokemon.flatName ? pokemon.flatName : pokemon.ename)}}.png"></img>
+              </div>
+              <div class="panel-footer">
+                <span style="font-weight:bold;">{{pokemon.id}}</span>
+                <span style="float:right; font-weight:bold;font-size:18px;">{{pokemon.ename}}</span>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

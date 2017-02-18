@@ -1,0 +1,31 @@
+<div class="searchContainer">
+  <div class="row">
+    <div class="col-md-4">
+        <p>
+          <label>Search</label><br/>
+          <input id="search" class="searchInput" name="search" type="text" placeholder="Who's that pokemon?" ng-model="searchText"/>
+        </p>
+        <p>
+          <label>Sort</label><br/>
+          <div class="btn-group">
+            <label class="btn btn-default" ng-model="sortType" uib-btn-radio="'id'" ng-change="sortChange()">Id</label>
+            <label class="btn btn-default" ng-model="sortType" uib-btn-radio="'ename'" ng-change="sortChange()">Name</label>
+            <label class="btn btn-default" ng-model="sortType" uib-btn-radio="'type'" ng-change="sortChange()">Types</label>
+          </div>
+          <div class="btn-group">
+            <label class="btn btn-default" ng-model="sortValue" uib-btn-radio="'+'" ng-change="sortChange()">ASC</label>
+            <label class="btn btn-default" ng-model="sortValue" uib-btn-radio="'-'" ng-change="sortChange()">DESC</label>
+          </div>
+        </p>
+    </div>
+
+    <div class="col-md-4">
+        <label>Types</label><br/>
+        <div class="col-md-12"><input type="checkbox" ng-model="selectAllType.selected" ng-init="selectAllType.selected = true" ng-change="selectAllTypeChange()"> select all</div>
+        <div class="col-md-4" ng-repeat="type in types">
+          <input type="checkbox" ng-model="type.selected"  ng-change="typesChange()" ng-init="type.selected = true"> {{type.ename}}
+        </div>
+    </div>
+  </div>
+</div>
+<hr/>
