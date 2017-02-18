@@ -1,5 +1,7 @@
 # pokedex-test
-For testing purposes. 
+Simple project for testing purposes. Front end using AngularJs and Node Express server as backend. 
+# Pre-requisite
+Please ensure you had NodeJS installed before running the project.
 # To install
 1. Download client and server
 2. Open command prompt, locate the server folder and run "npm install"
