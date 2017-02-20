@@ -11,7 +11,8 @@
             <h1>{{pokemonSelected.id}}<h1>
           </div>
           <div class="col-md-8">
-            <h1>{{pokemonSelected.ename}}<h1>
+            <h1 ng-dblclick="editPokemon(pokemonSelected)" ng-hide="editMode">{{pokemonSelected.ename}}<h1>
+              <input type="input" ng-show="editMode" value="{{pokemonSelected.ename}}" size="10" ng-model="pokemonSelected.ename" ng-blur="editMode=false;">
               <h4> <span class="label label-default poketype" ng-repeat="poketype in newTypesEN" ng-style="getTypeColorCode(poketype.ename)">{{poketype.ename}}</span> </h4>
           </div>
         </div>

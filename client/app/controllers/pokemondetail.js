@@ -2,6 +2,7 @@ app.controller('pokemonDetailController', function($rootScope, $scope, close, da
   $scope.close = close;
   $scope.pokemonSelected = $rootScope.pokemonSelected;
   $scope.allTypes = $rootScope.allTypes;
+  $scope.editMode = false;
   getPokemonSkills();
   function getPokemonSkills() {
     $scope.skills = [];
@@ -13,8 +14,6 @@ app.controller('pokemonDetailController', function($rootScope, $scope, close, da
       });
     });
   }
-  console.log($scope.pokemonSelected);
-  console.log($scope.allTypes);
   getPokemonTypesEN();
   function getPokemonTypesEN()
   {
@@ -94,6 +93,13 @@ app.controller('pokemonDetailController', function($rootScope, $scope, close, da
       default : colorData = {"background-color":"grey", "color":"white"};
     }
     return colorData;
+  }
+
+
+  //double click make pokemon name editable
+  $scope.editPokemon = function(pokemon) {
+    $scope.editMode = true;
+
   }
 
 });
